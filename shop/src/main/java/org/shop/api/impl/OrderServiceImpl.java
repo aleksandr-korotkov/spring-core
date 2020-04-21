@@ -12,13 +12,16 @@ import org.shop.data.Proposal;
 import org.shop.data.User;
 import org.shop.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
+    @Qualifier("orderRepository")
     private OrderRepository orderRepository;
 
     @Autowired
+    @Qualifier("itemService")
     private ItemService itemService;
 
     @Override

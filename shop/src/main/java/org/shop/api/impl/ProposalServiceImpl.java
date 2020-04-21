@@ -18,13 +18,15 @@ public class ProposalServiceImpl implements ProposalService {
     private final ProposalRepository repository;
 
     @Autowired
+    @Qualifier("sellerService")
     private SellerService sellerService;
 
     @Autowired
+    @Qualifier("productService")
     private ProductService productService;
 
     @Autowired
-    public ProposalServiceImpl(ProposalRepository repository) {
+    public ProposalServiceImpl(@Qualifier("proposalRepository") ProposalRepository repository) {
         super();
         this.repository = repository;
     }

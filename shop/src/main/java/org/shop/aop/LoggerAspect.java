@@ -14,8 +14,7 @@ import org.springframework.stereotype.Component;
 public class LoggerAspect {
     final static Logger logger = Logger.getLogger(LoggerAspect.class);
 
-   // @Pointcut("execution(* *(..)) && !within(is(FinalType)) && !within(org.shop.annotations.*)")
-    @Pointcut("execution(* *(..)) && !within(org.shop.ProductInitializer) && !within(org.shop.annotations.*)")
+    @Pointcut("execution(* *(..))  && !within(is(FinalType)) && !within(org.shop.DataInitializer)")
     public void callAllMethodsExludeFinalClasses() { }
 
     @Before("callAllMethodsExludeFinalClasses()")

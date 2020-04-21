@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * The Product Initializer util class.
  */
 public final class ProductInitializer {
-    
+
+    private ProductInitializer() {
+    }
+
     /** The product service. */
     private ProductService productService;
 

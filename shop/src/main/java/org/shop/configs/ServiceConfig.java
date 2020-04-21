@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import(RepositoryConfig.class)
 public class ServiceConfig {
+
     @Bean
     public ItemService itemService(ItemRepository itemRepository){
         return new ItemServiceImpl(itemRepository);

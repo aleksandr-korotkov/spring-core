@@ -6,13 +6,14 @@ import org.shop.api.ProductService;
 import org.shop.data.Product;
 import org.shop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository repository) {
+    public ProductServiceImpl(@Qualifier("productRepository") ProductRepository repository) {
         super();
         this.repository = repository;
     }
