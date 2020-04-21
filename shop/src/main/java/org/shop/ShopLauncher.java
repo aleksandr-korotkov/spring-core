@@ -4,8 +4,6 @@ import org.shop.configs.ParentConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.List;
-
 /**
  * The ShopLauncher class.
  */

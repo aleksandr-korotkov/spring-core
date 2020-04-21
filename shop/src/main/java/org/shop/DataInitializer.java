@@ -15,23 +15,15 @@ public class DataInitializer {
     int randomInt;
 
     /** The seller initializer. */
-    @Autowired
-    @Qualifier("sellerInitializer")
     private SellerInitializer sellerInitializer;
     
     /** The product initializer. */
-    @Autowired
-    @Qualifier("productInitializer")
     private ProductInitializer productInitializer;
     
     /** The proposal initializer. */
-    @Autowired
-    @Qualifier("proposalInitializer")
     private ProposalInitializer proposalInitializer;
     
     /** The user initializer. */
-    @Autowired
-    @Qualifier("userInitializer")
     private UserInitializer userInitializer;
 
     /**
@@ -43,5 +35,25 @@ public class DataInitializer {
         userInitializer.initUsers();
         productInitializer.initProducts();
         proposalInitializer.initProposals();
+    }
+
+    @Autowired
+    public void setSellerInitializer(@Qualifier("sellerInitializer") SellerInitializer sellerInitializer) {
+        this.sellerInitializer = sellerInitializer;
+    }
+
+    @Autowired
+    public void setProductInitializer(@Qualifier("productInitializer") ProductInitializer productInitializer) {
+        this.productInitializer = productInitializer;
+    }
+
+    @Autowired
+    public void setProposalInitializer(@Qualifier("proposalInitializer") ProposalInitializer proposalInitializer) {
+        this.proposalInitializer = proposalInitializer;
+    }
+
+    @Autowired
+    public void setUserInitializer(@Qualifier("userInitializer") UserInitializer userInitializer) {
+        this.userInitializer = userInitializer;
     }
 }

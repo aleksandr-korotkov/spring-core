@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class SellerServiceImpl implements SellerService {
-    @Autowired
-    @Qualifier("sellerRepositoryBean")
+
     private SellerRepository repository;
 
     /* (non-Javadoc)
@@ -37,5 +36,11 @@ public class SellerServiceImpl implements SellerService {
         for (Seller seller : sellers) {
             repository.createOrUpdateSeller(seller);
         }
+    }
+
+    @Autowired
+    @Qualifier("sellerRepositoryBean")
+    public void setRepository(SellerRepository repository) {
+        this.repository = repository;
     }
 }

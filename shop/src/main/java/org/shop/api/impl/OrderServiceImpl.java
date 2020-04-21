@@ -16,12 +16,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
-    @Qualifier("orderRepository")
     private OrderRepository orderRepository;
 
-    @Autowired
-    @Qualifier("itemService")
     private ItemService itemService;
 
     @Override
@@ -54,6 +50,17 @@ public class OrderServiceImpl implements OrderService {
         }
         
         return createOrder(user, items.toArray(new Item[items.size()]));
+    }
+    @Autowired
+    @Qualifier("orderRepository")
+    public void setOrderRepository(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    @Autowired
+    @Qualifier("itemService")
+    public void setItemService(ItemService itemService) {
+        this.itemService = itemService;
     }
 
     @Override

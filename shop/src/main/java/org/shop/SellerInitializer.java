@@ -17,11 +17,9 @@ import org.springframework.beans.factory.annotation.Value;
 public class SellerInitializer {
 
     /** The seller service. */
-    @Autowired
     private SellerService sellerService;
     
     /** The seller names. */
-    @Autowired
     private Map<Long, String> sellerNames;
 
     /**
@@ -39,5 +37,16 @@ public class SellerInitializer {
         }
 
         sellerService.importSellers(sellers);
+    }
+    @Autowired
+    @Qualifier("sellerService")
+    public void setSellerService(SellerService sellerService) {
+        this.sellerService = sellerService;
+    }
+
+    @Autowired
+    @Qualifier("sellerNames")
+    public void setSellerNames(Map<Long, String> sellerNames) {
+        this.sellerNames = sellerNames;
     }
 }

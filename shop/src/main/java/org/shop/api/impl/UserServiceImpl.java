@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    @Qualifier("userRepository")
     private UserRepository repository;
 
     /* (non-Javadoc)
@@ -47,6 +45,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public void populate(UserRepository repository) {
+        this.repository = repository;
+    }
+
+    @Autowired
+    @Qualifier("userRepository")
+    public void setRepository(UserRepository repository) {
         this.repository = repository;
     }
 }

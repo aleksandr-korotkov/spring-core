@@ -16,18 +16,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class ProposalInitializer {
     
     /** The product service. */
-    @Autowired
-    @Qualifier("productService")
     private ProductService productService;
     
     /** The proposal service. */
-    @Autowired
-    @Qualifier("proposalService")
     private ProposalService proposalService;
     
     /** The seller service. */
-    @Autowired
-    @Qualifier("sellerService")
     private SellerService sellerService;
 
     /**
@@ -49,5 +43,23 @@ public class ProposalInitializer {
         //Amazon
         proposalService.createProposal(amazon.getId(), kindleFire.getId(), 199.0);
         proposalService.createProposal(amazon.getId(), kindleTouch.getId(), 99.0);
+    }
+
+    @Autowired
+    @Qualifier("productService")
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @Autowired
+    @Qualifier("proposalService")
+    public void setProposalService(ProposalService proposalService) {
+        this.proposalService = proposalService;
+    }
+
+    @Autowired
+    @Qualifier("sellerService")
+    public void setSellerService(SellerService sellerService) {
+        this.sellerService = sellerService;
     }
 }

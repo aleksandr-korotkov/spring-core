@@ -17,12 +17,8 @@ public class ProposalServiceImpl implements ProposalService {
 
     private final ProposalRepository repository;
 
-    @Autowired
-    @Qualifier("sellerService")
     private SellerService sellerService;
 
-    @Autowired
-    @Qualifier("productService")
     private ProductService productService;
 
     @Autowired
@@ -97,5 +93,17 @@ public class ProposalServiceImpl implements ProposalService {
     @Override
     public List<Proposal> getProposalsBySellerId(Long sellerId) {
         return repository.getProposalsBySellerId(sellerId);
+    }
+
+    @Autowired
+    @Qualifier("sellerService")
+    public void setSellerService(SellerService sellerService) {
+        this.sellerService = sellerService;
+    }
+
+    @Autowired
+    @Qualifier("productService")
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
 }
